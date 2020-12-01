@@ -22,8 +22,12 @@ for (let i = 0; i<checkboxes.length; i++) {
     }
 }
 
-for (let i = 1; i<ol.length; i++) {
-    ol[i].style.height = `${ol[i].children.length*14.5}px`;
+for (let i = 0; i<ol.length; i++) {
+    if (ol[i].children.length > 6) {
+        ol[i].style.height = `${ol[i].children.length*31/3}px`;
+    } else {
+        ol[i].style.height = `${ol[i].children.length*36/3}px`;
+    }
     ol[i].style.listStyle = `"${i+1}. "`;
     for (let j = 0; j<ol[i].children.length; j++) {
         if(ol[i].children[j].children[0].children[0].checked == true)

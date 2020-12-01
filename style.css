@@ -37,17 +37,18 @@ section {
     flex-direction: column;
     flex-wrap: wrap;
     list-style: '1. ';
+    padding-left: 25px;
 }
 
 .topics-list__topic {
-    width: 320px;
-    height: 25px;
-    padding-bottom: 8px;
+    max-width: 310px;
+    width: 100%;
+    /*height: 25px;
+    padding-bottom: 8px;*/
     margin-bottom: 5px;
 }
 
 .introduction .topics-list {
-    height: 80px;
     width: 665px;
 }
 
