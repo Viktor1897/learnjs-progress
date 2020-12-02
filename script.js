@@ -1,8 +1,9 @@
-let checkboxes = document.querySelectorAll('input[type=checkbox]');
-let topics = document.querySelectorAll('label');
-let ol = document.querySelectorAll('ol');
-let progress = document.querySelectorAll('.section-progress');
-let partOfProgress = document.querySelectorAll('.part-of-progress');
+let checkboxes = document.querySelectorAll('input[type=checkbox]'),
+topics = document.querySelectorAll('label'),
+ol = document.querySelectorAll('ol'),
+progress = document.querySelectorAll('.section-progress'),
+partOfProgress = document.querySelectorAll('.part-of-progress'),
+qoute = document.querySelector('quote');
 
 for (let i = 0; i<checkboxes.length; i++) {
     checkboxes[i].onclick = function() {
@@ -55,4 +56,17 @@ function updateProgress() {
     }
 }
 
+qoute.onclick = loadQoute;
+
+function loadQoute () {
+    fetch('http://fucking-great-advice.ru/api/random')
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      qoute.textContent = data.text;
+    });
+}
+
 updateProgress();
+loadQoute();
