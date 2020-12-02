@@ -3,16 +3,16 @@ topics = document.querySelectorAll('label'),
 ol = document.querySelectorAll('ol'),
 progress = document.querySelectorAll('.section-progress'),
 partOfProgress = document.querySelectorAll('.part-of-progress'),
-qoute = document.querySelector('quote');
-
+qoute = document.querySelector('quote'),
+today = ((new Date().getDate()<10)? '0'+new Date().getDate():new Date().getDate()) +'/'+(new Date().getMonth()+1) +'/'+ new Date().getFullYear();
 for (let i = 0; i<checkboxes.length; i++) {
     checkboxes[i].onclick = function() {
         topics[i].style.color = (checkboxes[i].checked) ? 'green':'black';
         checkboxes[i].style.filter = 'hue-rotate(240deg)';
         localStorage.setItem(`topic_${i}`, checkboxes[i].checked);
         if (checkboxes[i].checked == true) {
-            localStorage.setItem(`topic_${i}-date`, new Date());
-            topics[i].title = new Date();
+            localStorage.setItem(`topic_${i}-date`, today);
+            topics[i].title = today;
         } else {
             localStorage.setItem(`topic_${i}-date`, '');
             topics[i].title = '';
@@ -38,10 +38,6 @@ for (let i = 0; i<ol.length; i++) {
         ol[i].style.height = `${ol[i].children.length*36/3}px`;
     }
     ol[i].style.listStyle = `"${i+1}. "`;
-    for (let j = 0; j<ol[i].children.length; j++) {
-        if(ol[i].children[j].children[0].children[0].checked == true)
-        console.log('true');
-    }
 }
 
 function updateProgress() {
