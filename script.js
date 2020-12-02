@@ -59,7 +59,7 @@ function updateProgress() {
 qoute.onclick = loadQoute;
 
 function loadQoute () {
-    fetch('http://fucking-great-advice.ru/api/random')
+    fetch('https://cors-anywhere.herokuapp.com/http://fucking-great-advice.ru/api/random')
     .then((response) => {
       return response.json();
     })
