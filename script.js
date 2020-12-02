@@ -5,10 +5,17 @@ let progress = document.querySelectorAll('.section-progress');
 let partOfProgress = document.querySelectorAll('.part-of-progress');
 
 for (let i = 0; i<checkboxes.length; i++) {
-    checkboxes[i].onclick = function(){
+    checkboxes[i].onclick = function() {
         topics[i].style.color = (checkboxes[i].checked) ? 'green':'black';
         checkboxes[i].style.filter = 'hue-rotate(240deg)';
         localStorage.setItem(`topic_${i}`, checkboxes[i].checked);
+        if (checkboxes[i].checked == true) {
+            localStorage.setItem(`topic_${i}-date`, new Date());
+            topics[i].title = new Date();
+        } else {
+            localStorage.setItem(`topic_${i}-date`, '');
+            topics[i].title = '';
+        }
         updateProgress();
     }
 }
@@ -18,6 +25,7 @@ for (let i = 0; i<checkboxes.length; i++) {
 for (let i = 0; i<checkboxes.length; i++) {
     if(localStorage.getItem(`topic_${i}`) == 'true') {
         checkboxes[i].checked = localStorage.getItem(`topic_${i}`);
+        topics[i].title = localStorage.getItem(`topic_${i}-date`);
         topics[i].style.color = (checkboxes[i].checked) ? '#0022b9':'black';
     }
 }
