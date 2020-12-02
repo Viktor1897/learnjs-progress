@@ -11,8 +11,23 @@ body {
 
 header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
+}
+
+.header__left-side {
+    display: flex;
+    align-items: center;
+}
+
+quote {
+    font-size: 24px;
+}
+
+quote:hover {
+    cursor: pointer;
+    filter: blur(2px);
 }
 
 section {
@@ -54,10 +69,4 @@ section {
 
 .section-progress {
     width: 100%;
-}
-
-.all-progress {
-    position: absolute;
-    top: 100px;
-    left: 20px;
 }
